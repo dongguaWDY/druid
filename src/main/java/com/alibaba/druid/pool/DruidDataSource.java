@@ -550,6 +550,8 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
         this.connectProperties = properties;
     }
 
+    
+    //what does init() do WDY??
     public void init() throws SQLException {
         if (inited) {
             return;
@@ -564,7 +566,7 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
 
         boolean init = false;
         try {
-            if (inited) {
+            if (inited) {//锁住之后在检查一遍inited
                 return;
             }
 

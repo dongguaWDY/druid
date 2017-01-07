@@ -253,7 +253,7 @@ public class Case1 extends TestCase {
         Thread[] threads = new Thread[threadCount];
         for (int i = 0; i < threadCount; ++i) {
             Thread thread = new Thread() {
-
+            	@Override
                 public void run() {
                     try {
                         startLatch.await();
@@ -277,6 +277,7 @@ public class Case1 extends TestCase {
             threads[i] = thread;
             thread.start();
         }
+        
         long startMillis = System.currentTimeMillis();
         long startYGC = TestUtil.getYoungGC();
         long startFullGC = TestUtil.getFullGC();
